@@ -51,7 +51,7 @@ void mostrar_estudiantes(vector<Estudiante> &estudiantes){
     if(estudiantes.empty()){
         cout << "\nNo existen estudiantes\n";
     } else {
-        cout << "\nIndice=========NOMBRE========AÑO DE NACIMIENTO==========PROMEDIO(GPA)=========PRESUPUESTO\n";
+        cout << "\nIndice=========NOMBRE========ANIO DE NACIMIENTO==========PROMEDIO(GPA)=========PRESUPUESTO\n";
         for(int i=0; i<estudiantes.size(); i++){
             cout << i << "------";
             estudiantes[i].mostrar_datos();
@@ -76,7 +76,7 @@ void ingresar_estudiante(vector<Estudiante> &estudiantes){
                 cout << "\nIngrese el nombre: ";
                 getline(cin >> ws, a);
                 int b;
-                cout << "Ingrese el año de nacimiento: ";
+                cout << "Ingrese el anio de nacimiento: ";
                 cin >> b;
                 float c;
                 do {
@@ -140,7 +140,7 @@ void eliminar_estudiante(vector<Estudiante> &estudiantes){
             cout << "\nElija la manera de eliminacion\n";
             cout << "1.Eliminar el ultimo\n";
             cout << "2.Eliminar por indice\n";
-            cout << "Elija: ";
+            cout << "Elija la opcion: ";
             cin >> eleccion;
             switch(eleccion){
                 case 1:
@@ -148,7 +148,7 @@ void eliminar_estudiante(vector<Estudiante> &estudiantes){
                     break;
                 case 2:
                     do{
-                        cout << "\nElija el indice: ";
+                        cout << "\nEscriba el indice del estudiante que desea eliminar: ";
                         cin >> indice;
                         if(indice < 0 || indice >= estudiantes.size()){
                             cout << "Indice no valido. Intente nuevamente.\n";
@@ -187,7 +187,7 @@ void actualizar_estudiante(vector<Estudiante> &estudiantes){
         cout << "Ingrese el nuevo nombre: ";
         getline(cin >> ws, n);
 
-        cout << "Ingrese el nuevo año de nacimiento: ";
+        cout << "Ingrese el nuevo anio de nacimiento: ";
         cin >> nac;
         
         do{
@@ -230,7 +230,7 @@ void ordenar_estudiantes(vector<Estudiante> &estudiantes){
         cout << "No existen estudiantes para ordenar\n";
     } else {
         cout << "\nOrdenar estudiantes por:\n";
-        cout << "1. Año de nacimiento\n";
+        cout << "1. Anio de nacimiento\n";
         cout << "2. GPA\n";
         cout << "3. Presupuesto\n";
         cout << "4. Indice universidad\n";
@@ -239,11 +239,11 @@ void ordenar_estudiantes(vector<Estudiante> &estudiantes){
 
         switch(opcion){
             case 1:
-                sort(estudiantes.begin(), estudiantes.end(),
-                    [](const Estudiante &a, const Estudiante &b){
-                        return a.obtener_nacimiento() < b.obtener_nacimiento();
-                    });
-                break;
+                    sort(estudiantes.begin(), estudiantes.end(),
+                        [](const Estudiante &a, const Estudiante &b){
+                            return a.obtener_nacimiento() < b.obtener_nacimiento();
+                        });
+                    break;
 
             case 2:
                 sort(estudiantes.begin(), estudiantes.end(),
@@ -276,7 +276,7 @@ void ordenar_estudiantes(vector<Estudiante> &estudiantes){
 void menu_y_funcionamiento(vector<Estudiante> &estudiantes){
     int opcion;
     do{
-        cout << "\nMenu\n";
+        cout << "\n========Menu========\n";
         cout << "1. Ingresar estudiante\n";
         cout << "2. Eliminar estudiante\n";
         cout << "3. Actualizar estudiante\n";
